@@ -1,5 +1,13 @@
 public class WeeklyCalender
 {
-    public boolean WeeklySchedule[7];
-    public boolean time[72];
+	
+    public boolean[][] WeeklySchedule = new boolean[7][72];
+    
+    public void resetCalender() {
+    	for (int columns = 0; columns < 7 ; columns++) {
+    		for (int rows = 0; rows < 72; rows++) {
+    			this.WeeklySchedule[columns][rows] = false;
+    		}
+    	}
+    }
 }

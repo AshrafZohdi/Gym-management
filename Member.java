@@ -1,37 +1,46 @@
-public class Member extends Person
-{
-    private boolean type;
+import java.util.Date;
+
+public class Member extends Person{
+    
+	private int type;
     private double fee;
     public static double discount;
     public WorkoutClass registeredClasses;
-    public int month; 
+    public int months; 
     public WeeklyCalender weeklySchedule;
     
-    public member(String Name, int DOB, String email, Date startDate, Date endDate, boolean Type, double Fee, int Month)
-    {
-        super(Name, DOB, email, startDate, endDate);
-        this.type = Type;
-        this.month = Month;
-        this.fee = Fee;
-        System.out.println("New member Created");
+    
+	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses) {
+		super(fn, ln, dob, email, startDate, endDate);
+		this.type=type;
+		this.months = calculateMonths(startDate, endDate);
+		this.fee = calculateFees(type, this.months);
+	}
+
+	
+    public int calculateMonths(Date startDate, Date endDate) {
+    	// to do
+    	return 0;
+    }
+
+    
+    public double calculateFees(int Type, int Months){
+    	
+    	// to do
+    	
+    	/*
+    	 * if(Type == 1){
+    	 * return ...* (2-months/12)*(1-discount)
+    	 * } else{
+    	 * return ...*/
+    	return 0.0;
     }
     
-    public void CalculateFees(int Type, int Months)
-    {
-        if(Type == 1)
-        {
-            return months*fees*discount;
-        }
-        else
-        {
-            return months*fees;
-        }
-    }
     
-    public double getFee()
-    {
+    public double getFee(){
         return this.fee;
     }
+    
     
     public String getType()
     {
@@ -45,19 +54,17 @@ public class Member extends Person
         }
     }
     
-    public void setType(boolean Type)
-    {
-        if(Type == 1)
-        {
-            this.type = Type;
-            CalculateFees() = month*fee*discount;
-        }
-        else
-        {
-            this.type = Type;
-            CalculateFees() = month*fee;
-        }
+    public void setType(int Type){
+    	this.type = Type;
+    	setFees( calculateFees(Type, months));
     }
     
-    public void addSchedule();
+    public void setFees(double fees){
+    	this.fee = fees;
+    }
+    
+    public void addSchedule() {
+    	weeklySchedule.resetCalender(); // fills calendar with all false
+    	
+    };
 }

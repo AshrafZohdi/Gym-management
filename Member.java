@@ -5,16 +5,18 @@ public class Member extends Person{
 	private int type;
     private double fee;
     public static double discount;
-    public WorkoutClass registeredClasses;
+    public WorkoutClass[] registeredClasses;
     public int months; 
-    public WeeklyCalender weeklySchedule;
+    public WeeklyCalender memberSchedule;
+    public int[][] filledSlotsIndex;
     
     
-	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses) {
+	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule) {
 		super(fn, ln, dob, email, startDate, endDate);
 		this.type=type;
 		this.months = calculateMonths(startDate, endDate);
 		this.fee = calculateFees(type, this.months);
+		this.memberSchedule.resetCalender();//set all slots to false
 	}
 
 	
@@ -63,8 +65,18 @@ public class Member extends Person{
     	this.fee = fees;
     }
     
-    public void addSchedule() {
-    	weeklySchedule.resetCalender(); // fills calendar with all false
+    public void addCLassesToSchedule() {
+    	for(int numClasses = 0; numClasses < this.registeredClasses.length ;numClasses++) { //loop through classes in resgisteredClasses[] array
+    		for (int columns = 0; columns < 7 ; columns++) {                            //loop through columns for each WorkoutCourse.weeklySchedule in the ^ array
+    			for (int rows = 0; rows < 72; rows++) {                                 //loop through the rows (times)
+    				if(this.registeredClasses[numClasses].weeklySchedule[columns][rows] && ) {//checks if this WorkoutCourse.workoutSchedule slot has a true in it and if so,
+    					this.memberSchedule.WeeklySchedule[columns][rows]=true;           // adds true to the corresponding Member.memberSchedule.WeeklySchedule cell
+    			
+    				}
+    				
+    			}	
+    		}	
+    	}	
+    }
     	
-    };
 }

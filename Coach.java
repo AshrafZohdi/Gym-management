@@ -6,9 +6,12 @@ public class Coach extends Staff {
 		super(fn, ln, dob, email, startDate, endDate, salary, designation);
 
 	}
+	
+	
 
 	@Override
 	public double calculateSalary() {
+		//to do 
 		return 0.0;
 
 	}

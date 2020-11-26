@@ -22,7 +22,7 @@ public class Member extends Person{
 		this.months = months;
 		this.endDate = currentDate + months;
 	}
-	
+
 
 	/*
 	MEMBER AHMED = NEW MENMEBER(... 8MONTH)

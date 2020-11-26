@@ -21,8 +21,16 @@ public class Member extends Person{
 
 	
     public int calculateMonths(Date startDate, Date endDate) {
-    	// to do
-    	return 0;
+    	
+    	startDate = new Date();
+    	LocalDate localDate1 = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    	int startMonth = localDate2.getMonthValue()
+    	
+    	endDate = new Date();
+    	LocalDate localDate2 = endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    	int endMonth = localDate2.getMonthValue()
+
+    	return endMonth - startMonth;
     }
 
     

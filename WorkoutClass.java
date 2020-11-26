@@ -2,6 +2,7 @@ import java.util.Date;
 
 public class WorkoutClass{
 	public boolean[][] weeklySchedule = new boolean[7][72];
+	public Member[] courseMembers;
     public String className;
     public String description;
     public Date startDate;

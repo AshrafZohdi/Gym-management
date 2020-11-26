@@ -8,7 +8,7 @@ public class Member extends Person{
     public WorkoutClass[] registeredClasses;
     public int months; 
     public WeeklyCalender memberSchedule;
-    public int[][] filledSlotsIndex;
+   // public int[][] filledSlotsIndex;
     
     
 	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule) {
@@ -66,10 +66,11 @@ public class Member extends Person{
     }
     
     public void addCLassesToSchedule() {
+    	//add exception if schedule is already filled
     	for(int numClasses = 0; numClasses < this.registeredClasses.length ;numClasses++) { //loop through classes in resgisteredClasses[] array
     		for (int columns = 0; columns < 7 ; columns++) {                            //loop through columns for each WorkoutCourse.weeklySchedule in the ^ array
     			for (int rows = 0; rows < 72; rows++) {                                 //loop through the rows (times)
-    				if(this.registeredClasses[numClasses].weeklySchedule[columns][rows] && ) {//checks if this WorkoutCourse.workoutSchedule slot has a true in it and if so,
+    				if(this.registeredClasses[numClasses].weeklySchedule[columns][rows] || !this.memberSchedule.WeeklySchedule[columns][rows]  ) {//checks if this WorkoutCourse.workoutSchedule slot has a true in it and if so,
     					this.memberSchedule.WeeklySchedule[columns][rows]=true;           // adds true to the corresponding Member.memberSchedule.WeeklySchedule cell
     			
     				}

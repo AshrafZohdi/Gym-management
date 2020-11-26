@@ -11,26 +11,31 @@ public class Member extends Person{
    // public int[][] filledSlotsIndex;
     
     
-	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule) {
+	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
 		super(fn, ln, dob, email, startDate, endDate);
 		this.type=type;
-		this.months = calculateMonths(startDate, endDate);
 		this.fee = calculateFees(type, this.months);
 		this.memberSchedule.resetCalender();//set all slots to false
 	}
 
+	public void renew(int months){
+		this.months = months;
+		this.endDate = currentDate + months;
+	}
 	
-    public int calculateMonths(Date startDate, Date endDate) {
-    	// to do
-    	return 0;
-    }
 
-    
-    public double calculateFees(int Type, int Months){
+	/*
+	MEMBER AHMED = NEW MENMEBER(... 8MONTH)
+			AHMED.MONTHS = 5;
+	AHMED.RENEW(5);
+	Ahmed.calculateFees
+    */
+    public double calculateFees(){
     	
     	// to do
     	
     	/*
+    	 * use this.type and this.months and this.discount
     	 * if(Type == 1){
     	 * return ...* (2-months/12)*(1-discount)
     	 * } else{

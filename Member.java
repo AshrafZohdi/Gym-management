@@ -1,26 +1,50 @@
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class Member extends Person{
     
 	private int type;
     private double fee;
-    public static double discount;
+    public static double oneMonthRate   = 100;
+    public static double threeMonthRate = 95;
+    public static double sixMonthRate   = 90;
+    public static double yearlyRate     = 80;
+    public double discount;
     public WorkoutClass[] registeredClasses;
     public int months; 
     public WeeklyCalender memberSchedule;
     public int[][] filledSlotsIndex;
     
     
-	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule) {
+	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
 		super(fn, ln, dob, email, startDate, endDate);
-		this.type=type;
-		this.months = calculateMonths(startDate, endDate);
+		this.type = type;
+		this.months = months;
+		this.fee = calculateFees(type, this.months);
+		this.memberSchedule.resetCalender();//set all slots to false
+	}
+	
+	public Member(String fn, String ln, Date dob, String email, Date startDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+		super(fn, ln, dob, email);
+		super.setStartDate(startDate);
+		Date endDate = ((LocalDate) startDate).plusMonths(1);
+		this.type = type;
+		this.months = months;
+		this.fee = calculateFees(type, this.months);
+		this.memberSchedule.resetCalender();//set all slots to false
+	}
+	
+	public Member(String fn, String ln, Date dob, String email, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+		super(fn, ln, dob, email);
+		this.type = type;
+		this.months = months;
 		this.fee = calculateFees(type, this.months);
 		this.memberSchedule.resetCalender();//set all slots to false
 	}
 
 	
-    public int calculateMonths(Date startDate, Date endDate) {
+   /* public int calculateMonths(Date startDate, Date endDate) {
     	
     	startDate = new Date();
     	LocalDate localDate1 = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -32,7 +56,7 @@ public class Member extends Person{
 
     	return endMonth - startMonth;
     }
-
+*/
     
     public double calculateFees(int Type, int Months){
     	
@@ -77,7 +101,7 @@ public class Member extends Person{
     	for(int numClasses = 0; numClasses < this.registeredClasses.length ;numClasses++) { //loop through classes in resgisteredClasses[] array
     		for (int columns = 0; columns < 7 ; columns++) {                            //loop through columns for each WorkoutCourse.weeklySchedule in the ^ array
     			for (int rows = 0; rows < 72; rows++) {                                 //loop through the rows (times)
-    				if(this.registeredClasses[numClasses].weeklySchedule[columns][rows] && ) {//checks if this WorkoutCourse.workoutSchedule slot has a true in it and if so,
+    				if(this.registeredClasses[numClasses].weeklySchedule[columns][rows] ) {//checks if this WorkoutCourse.workoutSchedule slot has a true in it and if so,
     					this.memberSchedule.WeeklySchedule[columns][rows]=true;           // adds true to the corresponding Member.memberSchedule.WeeklySchedule cell
     			
     				}

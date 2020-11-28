@@ -18,6 +18,7 @@ public class Member extends Person{
     
     
 	public Member(String fn, String ln, Date dob, String email, LocalDate startDate, LocalDate endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+		//this constructor is if the user inputs months start date and end date
 		super(fn, ln, dob, email, startDate, endDate);
 		this.type = type;
 		this.months = months;
@@ -26,6 +27,7 @@ public class Member extends Person{
 	}
 	
 	public Member(String fn, String ln, Date dob, String email, LocalDate startDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+		//this constructor is if the user only inputs months and start date
 		super(fn, ln, dob, email);
 		super.setStartDate(startDate);
 		LocalDate endDate = startDate.plusMonths(Integer.toUnsignedLong(months));//can throw InputMismatchException and if a negative is given it is converted to a large number making it apparent but not throwing an error
@@ -36,34 +38,23 @@ public class Member extends Person{
 	}
 	
 	public Member(String fn, String ln, Date dob, String email, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+		//this constructor is if the user only inputs months
 		super(fn, ln, dob, email);
+		LocalDate startDate = LocalDate.now();
 		super.setStartDate(startDate);
+		LocalDate endDate = startDate.plusMonths(Integer.toUnsignedLong(months));
+		super.setStartDate(endDate);
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);
 		this.memberSchedule.resetCalender();//set all slots to false
 	}
 
-	
-   /* public int calculateMonths(Date startDate, Date endDate) {
-    	
-    	startDate = new Date();
-    	LocalDate localDate1 = startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    	int startMonth = localDate2.getMonthValue()
-    	
-    	endDate = new Date();
-    	LocalDate localDate2 = endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    	int endMonth = localDate2.getMonthValue()
 
-    	return endMonth - startMonth;
-    }
-*/
     
-    public double calculateFees(int Type, int Months)
-    {
-    	
-    	if (type == 1)
-    	{
+    public double calculateFees(int Type, int Months){
+    	if (type == 1){
+    		
     		if(months == 3){
     			return months*threeMonthRate*studentDiscount;}
     		
@@ -77,15 +68,8 @@ public class Member extends Person{
     			return months*oneMonthRate*studentDiscount;}
     	}
     	
-    	/*
-    	 * use this.type and this.months and this.discount
-    	 * if(Type == 1){
-    	 * return ...* (2-months/12)*(1-discount)
-    	 * } else{
-    	 * return ...*/
-    	return 0.0;
-    	else
-    	{
+    	
+    	else {
     		if(months == 3){
     			return months*threeMonthRate;}
     		

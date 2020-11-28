@@ -1,16 +1,19 @@
-import java.util.Date;
+import java.time.*;
+import java.util.*;
 
 public class WorkoutClass{
 	public boolean[][] weeklySchedule = new boolean[7][72];
 	public Member[] courseMembers;
     public String className;
     public String description;
-    public Date startDate;
-    public Date endDate;
+    public LocalDate startDate;
+    public LocalDate endDate;
     public Coach coach;
-    public int[][] filledSlotsIndex; 
+    //public int[][] filledSlotsIndex;
+    // {[1,0], [1,1], ...}
+    List<int[]> filledSlotsIndex = new ArrayList<int[]>();
 	
-    public WorkoutClass(int[][] index, String className, String description, Date startDate, Date endDate,
+    public WorkoutClass(List<int[]> index, String className, String description, LocalDate startDate, LocalDate endDate,
 			Coach coach) {
     	resetCalender();
     	fillClassSchedule(index);
@@ -31,8 +34,10 @@ public class WorkoutClass{
     	}
     }
     
-    public void fillClassSchedule(int[][] index){
-    	// fills the weeklySchedule using an index
+    public void fillClassSchedule(List<int[]> index){
+    	for (int[] address : index) {
+    		this.weeklySchedule[address[0]][address[1]] = true;
+    	}
     }
     
 }

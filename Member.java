@@ -1,5 +1,4 @@
-import java.time.LocalDate;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.Date;
 
 public class Member extends Person{
@@ -18,7 +17,7 @@ public class Member extends Person{
    // public int[][] filledSlotsIndex;
     
     
-	public Member(String fn, String ln, Date dob, String email, Date startDate, Date endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+	public Member(String fn, String ln, Date dob, String email, LocalDate startDate, LocalDate endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
 		super(fn, ln, dob, email, startDate, endDate);
 		this.type = type;
 		this.months = months;
@@ -26,10 +25,10 @@ public class Member extends Person{
 		this.memberSchedule.resetCalender();//set all slots to false
 	}
 	
-	public Member(String fn, String ln, Date dob, String email, Date startDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+	public Member(String fn, String ln, Date dob, String email, LocalDate startDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
 		super(fn, ln, dob, email);
 		super.setStartDate(startDate);
-		Date endDate = ((LocalDate) startDate).plusMonths(1);
+		LocalDate endDate = startDate.plusMonths(Integer.toUnsignedLong(months));//can throw InputMismatchException and if a negative is given it is converted to a large number making it apparent but not throwing an error
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);
@@ -38,6 +37,7 @@ public class Member extends Person{
 	
 	public Member(String fn, String ln, Date dob, String email, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
 		super(fn, ln, dob, email);
+		super.setStartDate(startDate);
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);

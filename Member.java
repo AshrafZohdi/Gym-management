@@ -10,6 +10,7 @@ public class Member extends Person{
     public static double threeMonthRate = 95;
     public static double sixMonthRate   = 90;
     public static double yearlyRate     = 80;
+    public static double studentDiscount =0.1;//for now.(10%)
     public double discount;
     public WorkoutClass[] registeredClasses;
     public int months; 
@@ -58,16 +59,38 @@ public class Member extends Person{
     }
 */
     
-    public double calculateFees(int Type, int Months){
+    public double calculateFees(int Type, int Months)
+    {
     	
-    	// to do
+    	if (type == 1)
+    	{
+    		if(months == 3){
+    			return months*threeMonthRate*studentDiscount;}
+    		
+    		else if(months == 6){
+    			return months*sixMonthRate*studentDiscount;}
+    		
+    		else if(months == 12){
+    			return months*yearlyRate*studentDiscount;}
+    		
+    		else{	
+    			return months*oneMonthRate*studentDiscount;}
+    	}
     	
-    	/*
-    	 * if(Type == 1){
-    	 * return ...* (2-months/12)*(1-discount)
-    	 * } else{
-    	 * return ...*/
-    	return 0.0;
+    	else
+    	{
+    		if(months == 3){
+    			return months*threeMonthRate;}
+    		
+    		else if(months == 6){
+    			return months*sixMonthRate;}
+    		
+    		else if(months == 12){
+    			return months*yearlyRate;}
+    		
+    		else {	
+    			return months*oneMonthRate;}
+    	}
     }
     
     

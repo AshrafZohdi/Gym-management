@@ -2,7 +2,8 @@ import java.time.*;
 import java.util.*;
 
 public class WorkoutClass{
-	public boolean[][] weeklySchedule = new boolean[7][72];
+	public WeeklyCalender workoutSchedule = new WeeklyCalender();//instead of creating a new weeklySchedule variable here all classes use the Weekly Calender class to reduce code redundancy --> delete this comment
+	//public boolean[][] weeklySchedule = new boolean[7][72];  --> delete this comment
 	public Member[] courseMembers;
     public String className;
     public String description;
@@ -34,18 +35,18 @@ public class WorkoutClass{
     }
     
 
-    public void resetCalender() {
-    	for (int columns = 0; columns < 7 ; columns++) {
+    /*public void resetCalender() {
+    	for (int columns = 0; columns < 7 ; columns++) {   this function is now redundant since we are using a weeklycalender object to store the workout schedule
     		for (int rows = 0; rows < 72; rows++) {
     			this.weeklySchedule[columns][rows] = false;
     		}
     	}
-    }
+    }*/
     
     public void updateClassSchedule(List<int[]> index){
-    	resetCalender();
+    	this.workoutSchedule.resetCalender();
     	for (int[] address : index) {
-    		this.weeklySchedule[address[0]][address[1]] = true;
+    		this.workoutSchedule.WeeklySchedule[address[0]][address[1]] = true;
     	}
     }
     

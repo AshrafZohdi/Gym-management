@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Date;
 
@@ -24,6 +25,18 @@ public class main
 
         Member M3 = new Member("Louis","Collins",22/02/2001,"LouisCollins@email.com",1,5,3,1);
         System.out.println(M3);
+        
+    	List<int[]> innerClass = new ArrayList<int[]>() {{
+        	int[] a = {0,1};
+        	add(a);
+    	}};
+    	
+    	int[] a = {0,0};
+    	List<int[]> useCollections = new ArrayList<int[]>();
+    	Collections.addAll(useCollections,a);
+    	/*
+    	 * http://www.groupkt.com/post/2f40241c/java---how-to-create-and-initialize-a-list-arraylist-in-efficient-way.htm 
+    	 */
     }
         
 }

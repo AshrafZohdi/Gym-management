@@ -9,11 +9,10 @@ public class Coach extends Staff {
 	
 	
 
-	@Override
-	public double calculateSalary() {
+//	@Override
+	//public double calculateSalary() {
 		//to do 
-		return 0.0;
+	//	return 0.0;
 
 	}
 
-}

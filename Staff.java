@@ -18,7 +18,7 @@ public abstract class Staff extends Person{
 	}
 
 
-	public abstract double calculateSalary() ;
+//	public abstract double calculateSalary() ;
 
 	public void setSalary(double salary) {
 		this.salary = salary;

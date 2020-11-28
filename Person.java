@@ -19,6 +19,15 @@ public abstract class Person{
         this.endDate = endDate;
         System.out.println("New person is created");
     }
+    
+    public Person(String fn, String ln, Date dob, String email)
+    {
+        this.fName = fn;
+        this.lName = ln;
+        this.dOB = dob;
+        this.email = email;
+        System.out.println("New person is created");
+    }
 
     
     

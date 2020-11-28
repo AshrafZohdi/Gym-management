@@ -10,7 +10,7 @@ public class Member extends Person{
     public static double threeMonthRate = 95;
     public static double sixMonthRate   = 90;
     public static double yearlyRate     = 80;
-    public static double studentDiscount =0.1;//for now.(10%)
+    public static double studentDiscount =0.9;//for now.(10%)
     public double discount;
     public WorkoutClass[] registeredClasses;
     public int months; 

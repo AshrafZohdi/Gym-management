@@ -19,7 +19,7 @@ public class Member extends Person{
     public List<int[]> filledSlotsIndex = new ArrayList<int[]>(); // {[1,0], [1,1], ...} has the addresses that contain true
     
     
-	public Member(String fn, String ln, Date dob, String email, LocalDate startDate, LocalDate endDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate, int type, WorkoutClass[] registeredClasses, WeeklyCalender memberSchedule, int months) {
 		//this constructor is if the user inputs months start date and end date
 		
 		super(fn, ln, dob, email, startDate, endDate);
@@ -27,10 +27,11 @@ public class Member extends Person{
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);
-		this.memberSchedule.resetCalender();//set all slots to false
+		this.memberSchedule = memberSchedule;
+		//this.memberSchedule.resetCalender();//set all slots to false
 	}
 	
-	public Member(String fn, String ln, Date dob, String email, LocalDate startDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
 		//this constructor is if the user only inputs months and start date
 		
 		super(fn, ln, dob, email);
@@ -42,10 +43,11 @@ public class Member extends Person{
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);
+		this.memberSchedule = memberSchedule;
 		this.memberSchedule.resetCalender();//set all slots to false
 	}
 	
-	public Member(String fn, String ln, Date dob, String email, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, int type, WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
 		//this constructor is if the user only inputs months
 		
 		super(fn, ln, dob, email);
@@ -58,6 +60,7 @@ public class Member extends Person{
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);
+		this.memberSchedule = memberSchedule;
 		this.memberSchedule.resetCalender();//set all slots to false
 	}
 

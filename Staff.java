@@ -7,7 +7,7 @@ public abstract class Staff extends Person{
     public String designation;
     
     
-     public Staff(String fn, String ln, Date dob, String email, LocalDate startDate, LocalDate endDate, double salary, String designation) {
+     public Staff(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate, double salary, String designation) {
 		super(fn, ln, dob, email, startDate, endDate);
 		this.salary = salary;
 		this.designation = designation;

@@ -5,12 +5,12 @@ public abstract class Person{
 
     private String fName;
     private String lName;
-    private Date dOB;
+    private LocalDate dOB;
     private String email;
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public Person(String fn, String ln, Date dob, String email, LocalDate startDate, LocalDate endDate)
+    public Person(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate)
     {
         this.fName = fn;
         this.lName = ln;
@@ -21,7 +21,7 @@ public abstract class Person{
         System.out.println("New person is created");
     }
     
-    public Person(String fn, String ln, Date dob, String email)
+    public Person(String fn, String ln, LocalDate dob, String email)
     {
         this.fName = fn;
         this.lName = ln;
@@ -65,13 +65,13 @@ public abstract class Person{
 
 
 
-	public Date getdOB() {
+	public LocalDate getdOB() {
 		return dOB;
 	}
 
 
 
-	public void setdOB(Date dOB) {
+	public void setdOB(LocalDate dOB) {
 		this.dOB = dOB;
 	}
 

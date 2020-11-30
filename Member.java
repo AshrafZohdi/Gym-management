@@ -159,18 +159,22 @@ public class Member extends Person {
 	}
 																	// similar to add schedule however its a draft
 																	// fix or change if you can.
-	public void removeClassfromSchedule() {							//we should create an exception in-case
+	public void removeClassfromSchedule() throws EmptySlotException {							//we should create an exception in-case
 																	//the schedule is already empty
 		for(WorkoutClass workoutClass : this.registeredClasses) {
 			
 			for (int columns = 0; columns < 7; columns++) {			// goes through the columns
-				for (int rows = 0; rows < 72; rows++) {				// goes through the rows
-																	checks if the co
+				for (int rows = 0; rows < 72; rows++) {				// goes through the rows	
+					
+					if (!workoutClass.workoutSchedule.WeeklySchedule[columns][rows]	// if it's not in workoutSchedule.WeeklySchedule
+							&& !this.memberSchedule.WeeklySchedule[columns][rows])	// & not in memberSchedule.WeeklySchedule
+					{																// we throw the exception
+						throw new EmptySlotException("this slot is already Empty");
+					}
 					if (workoutClass.workoutSchedule.WeeklySchedule[columns][rows]) {	//checks if the schedule has a true
 																						// in it and if so it'll assign its
 																						// corresponding member with false
-																						// "removing" the schedule for 
-																						// corresponding member.
+																						// "removing" the class.
 						this.memberSchedule.WeeklySchedule[columns][rows] = false;
 					}
 				}

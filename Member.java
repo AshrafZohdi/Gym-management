@@ -159,7 +159,8 @@ public class Member extends Person {
 	}
 
 	/*
-	 * // to do add a method to remove classes from schedule add method that updates
+	 * // to do 
+	 * add a method to remove classes from schedule add method that updates
 	 * the registered classes and calls the addClassToSchedule() or the remove class
 	 * method. or should this be in the main?
 	 * 

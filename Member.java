@@ -159,7 +159,7 @@ public class Member extends Person {
 	}
 																	// similar to add schedule however its a draft
 																	// fix or change if you can.
-	public void removeClassfromSchedule() throws EmptySlotException {							//we should create an exception in-case
+	public void removeClassfromSchedule() throws EmptySlotException {//we should create an exception in-case
 																	//the schedule is already empty
 		for(WorkoutClass workoutClass : this.registeredClasses) {
 			

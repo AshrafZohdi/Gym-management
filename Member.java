@@ -157,7 +157,26 @@ public class Member extends Person {
 			}
 		}
 	}
-
+																	// similar to add schedule however its a draft
+																	// fix or change if you can.
+	public void removeClassfromSchedule() {							//we should create an exception in-case
+																	//the schedule is already empty
+		for(WorkoutClass workoutClass : this.registeredClasses) {
+			
+			for (int columns = 0; columns < 7; columns++) {			// goes through the columns
+				for (int rows = 0; rows < 72; rows++) {				// goes through the rows
+																	checks if the co
+					if (workoutClass.workoutSchedule.WeeklySchedule[columns][rows]) {	//checks if the schedule has a true
+																						// in it and if so it'll assign its
+																						// corresponding member with false
+																						// "removing" the schedule for 
+																						// corresponding member.
+						this.memberSchedule.WeeklySchedule[columns][rows] = false;
+					}
+				}
+			}
+		}
+	}
 	/*
 	 * // to do 
 	 * add a method to remove classes from schedule add method that updates

@@ -1,3 +1,4 @@
+package application;
 public class WeeklyCalender{
 	
 	public boolean[][] WeeklySchedule = new boolean[7][72];

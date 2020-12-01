@@ -1,3 +1,5 @@
+package application;
+
 import java.time.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,14 +15,13 @@ public class Member extends Person {
 	public static double yearlyRate = 80;
 	public static double studentDiscount = 0.9;// for now.(10%)
 	public double discount;
-	public WorkoutClass[] registeredClasses;
+	//public WorkoutClass[] registeredClasses = new ;
 	public int months;
-	public WeeklyCalender memberSchedule;
-	public List<int[]> filledSlotsIndex = new ArrayList<int[]>(); // {[1,0], [1,1], ...} has the addresses that contain
+	//public WeeklyCalender memberSchedule;
+	//public List<int[]> filledSlotsIndex = new ArrayList<int[]>(); // {[1,0], [1,1], ...} has the addresses that contain
 																	// true
 
-	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate, int type,
-			WorkoutClass[] registeredClasses, WeeklyCalender memberSchedule, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate, int type, int months) {
 		// this constructor is if the user inputs months start date and end date
 
 		super(fn, ln, dob, email, startDate, endDate);
@@ -28,12 +29,11 @@ public class Member extends Person {
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);
-		this.memberSchedule = memberSchedule;
+		//this.memberSchedule = memberSchedule;
 		// this.memberSchedule.resetCalender();//set all slots to false
 	}
 
-	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, int type,
-			WorkoutClass registeredClasses, WeeklyCalender memberSchedule, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, int type, int months) {
 		// this constructor is if the user only inputs months and start date
 
 		super(fn, ln, dob, email);
@@ -49,12 +49,12 @@ public class Member extends Person {
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);
-		this.memberSchedule = memberSchedule;
-		this.memberSchedule.resetCalender();// set all slots to false
+		//this.memberSchedule = memberSchedule;
+		//this.memberSchedule.resetCalender();
+		// set all slots to false
 	}
 
-	public Member(String fn, String ln, LocalDate dob, String email, int type, WorkoutClass registeredClasses,
-			WeeklyCalender memberSchedule, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, int type, int months) {
 		// this constructor is if the user only inputs months
 
 		super(fn, ln, dob, email);
@@ -67,8 +67,9 @@ public class Member extends Person {
 		this.type = type;
 		this.months = months;
 		this.fee = calculateFees(type, this.months);
-		this.memberSchedule = memberSchedule;
-		this.memberSchedule.resetCalender();// set all slots to false
+		//this.memberSchedule = memberSchedule;
+		//this.memberSchedule.resetCalender();
+		// set all slots to false
 	}
 
 	public double calculateFees(int Type, int Months) {
@@ -130,6 +131,9 @@ public class Member extends Person {
 	public void setFees(double fees) {
 		this.fee = fees;
 	}
+	
+	
+	/*
 
 	public void addCLassesToSchedule() throws SlotFilledException {
 		// add exception if schedule is already filled
@@ -157,30 +161,9 @@ public class Member extends Person {
 			}
 		}
 	}
-																	// similar to add schedule however its a draft
-																	// fix or change if you can.
-	public void removeClassfromSchedule() throws EmptySlotException {//we should create an exception in-case
-																	//the schedule is already empty
-		for(WorkoutClass workoutClass : this.registeredClasses) {
-			
-			for (int columns = 0; columns < 7; columns++) {			// goes through the columns
-				for (int rows = 0; rows < 72; rows++) {				// goes through the rows	
-					
-					if (!workoutClass.workoutSchedule.WeeklySchedule[columns][rows]	// if it's not in workoutSchedule.WeeklySchedule
-							&& !this.memberSchedule.WeeklySchedule[columns][rows])	// & not in memberSchedule.WeeklySchedule
-					{																// we throw the exception
-						throw new EmptySlotException("this slot is already Empty");
-					}
-					if (workoutClass.workoutSchedule.WeeklySchedule[columns][rows]) {	//checks if the schedule has a true
-																						// in it and if so it'll assign its
-																						// corresponding member with false
-																						// "removing" the class.
-						this.memberSchedule.WeeklySchedule[columns][rows] = false;
-					}
-				}
-			}
-		}
-	}
+	
+	*/
+
 	/*
 	 * // to do 
 	 * add a method to remove classes from schedule add method that updates

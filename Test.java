@@ -1,3 +1,6 @@
+import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -5,6 +8,9 @@ import java.util.List;
 import java.util.Date;
 
 public class Test{
+	
+	static BufferedReader input = new BufferedReader( new InputStreamReader (System.in));
+	
     public static void main(String[] args){
     	
     	LocalDate Date1 = LocalDate.parse("2019-12-31");//this is how you create a local date
@@ -27,16 +33,59 @@ public class Test{
 		//WorkoutClass[] M1Classes = new WorkoutClass[10];
 		WeeklyCalender M1Schedule = new WeeklyCalender(new boolean[7][72]);
 		
-		Member M1 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);		
-		Member M2 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);
-		Member M3 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);
-		
-		yogaClass.courseMembers.add(M1);
-		
-		
-		
-		
-		
+		try {
+			System.out.println("Please enter number: ");
+			String s = input.readLine();
+			int z = Integer.parseInt(s);
+			
+			Member M1 = new Member("Sheikh", "Zubeir", LocalDate.parse("2019-12-31"), "Hatemhuweidi@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, z);	
+			
+			System.out.println("Please enter number: ");
+			String t = input.readLine();
+			int x = Integer.parseInt(t);
+			
+			Member M2 = new Member("Ghaith", "Marquees", LocalDate.parse("2018-05-11"), "BruhMarquees@email.com", LocalDate.parse("2018-08-11"), 1, x);
+			
+			System.out.println("Please enter number: ");
+			String y = input.readLine();
+			int g = Integer.parseInt(y);
+			
+			Member M3 = new Member("Rayan", "Saeed", LocalDate.parse("2019-12-31"), "RayanSaeed@email.com", 0, g);
+			
+			yogaClass.courseMembers.add(M1);
+			yogaClass.courseMembers.add(M2);
+			yogaClass.courseMembers.add(M3);
+			
+			System.out.println(yogaClass.courseMembers);
+			
+			yogaClass.courseMembers.clear();
+			
+			System.out.println(yogaClass.courseMembers);
+			
+			System.out.println(M1.calculateFees(0, 3));
+			
+			System.out.println(M1.getFee());
+			
+			M1.setFees(600);
+			
+			System.out.println(M1.getFee());
+			
+			System.out.println(M1.getType());
+			
+			M1.setType(1);
+			
+			System.out.println(M1.getType());
+		}
+		catch(NegativeNumberException e)
+		{
+			System.err.println("Wrong Input" + e.getMessage());
+		}
+		catch(IOException z)
+		{
+			System.err.println("Wrong Input" + z.getMessage());
+		}
+		finally {}
+
 		/*
 		 *  //to do
 		 *  test all the methods of member 

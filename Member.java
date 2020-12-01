@@ -20,9 +20,8 @@ public class Member extends Person {
 	//public List<int[]> filledSlotsIndex = new ArrayList<int[]>(); // {[1,0], [1,1], ...} has the addresses that contain
 																	// true
 
-	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate, int type, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate, int type, int months) throws NegativeNumberException {
 		// this constructor is if the user inputs months start date and end date
-
 		super(fn, ln, dob, email, startDate, endDate);
 
 		this.type = type;
@@ -32,7 +31,7 @@ public class Member extends Person {
 		// this.memberSchedule.resetCalender();//set all slots to false
 	}
 
-	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, int type, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, int type, int months) throws NegativeNumberException {
 		// this constructor is if the user only inputs months and start date
 
 		super(fn, ln, dob, email);
@@ -53,7 +52,7 @@ public class Member extends Person {
 		// set all slots to false
 	}
 
-	public Member(String fn, String ln, LocalDate dob, String email, int type, int months) {
+	public Member(String fn, String ln, LocalDate dob, String email, int type, int months) throws NegativeNumberException {
 		// this constructor is if the user only inputs months
 
 		super(fn, ln, dob, email);
@@ -71,7 +70,13 @@ public class Member extends Person {
 		// set all slots to false
 	}
 
-	public double calculateFees(int Type, int Months) {
+	public double calculateFees(int Type, int Months) throws NegativeNumberException {
+		
+		if(Months < 0)
+		{
+			throw new NegativeNumberException("Error, Months can't be negative");
+		}
+		
 		if (type == 1) {
 
 			if (months == 3) {
@@ -122,7 +127,7 @@ public class Member extends Person {
 		}
 	}
 
-	public void setType(int Type) {
+	public void setType(int Type) throws NegativeNumberException {
 		this.type = Type;
 		setFees(calculateFees(Type, months));
 	}

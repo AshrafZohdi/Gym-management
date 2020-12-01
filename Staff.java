@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Date;
 
 public abstract class Staff extends Person{
@@ -6,7 +7,7 @@ public abstract class Staff extends Person{
     public String designation;
     
     
-     public Staff(String fn, String ln, Date dob, String email, Date startDate, Date endDate, double salary, String designation) {
+     public Staff(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate, double salary, String designation) {
 		super(fn, ln, dob, email, startDate, endDate);
 		this.salary = salary;
 		this.designation = designation;
@@ -18,7 +19,7 @@ public abstract class Staff extends Person{
 	}
 
 
-	public abstract double calculateSalary() ;
+//	public abstract double calculateSalary() ;
 
 	public void setSalary(double salary) {
 		this.salary = salary;

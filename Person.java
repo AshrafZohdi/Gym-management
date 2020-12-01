@@ -1,15 +1,16 @@
 import java.util.Date;
+import java.time.*;
 
 public abstract class Person{
 
     private String fName;
     private String lName;
-    private Date dOB;
+    private LocalDate dOB;
     private String email;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    public Person(String fn, String ln, Date dob, String email, Date startDate, Date endDate)
+    public Person(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate)
     {
         this.fName = fn;
         this.lName = ln;
@@ -17,6 +18,15 @@ public abstract class Person{
         this.email = email;
         this.startDate = startDate;
         this.endDate = endDate;
+        System.out.println("New person is created");
+    }
+    
+    public Person(String fn, String ln, LocalDate dob, String email)
+    {
+        this.fName = fn;
+        this.lName = ln;
+        this.dOB = dob;
+        this.email = email;
         System.out.println("New person is created");
     }
 
@@ -55,13 +65,13 @@ public abstract class Person{
 
 
 
-	public Date getdOB() {
+	public LocalDate getdOB() {
 		return dOB;
 	}
 
 
 
-	public void setdOB(Date dOB) {
+	public void setdOB(LocalDate dOB) {
 		this.dOB = dOB;
 	}
 
@@ -79,25 +89,25 @@ public abstract class Person{
 
 
 
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
 
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
 
 
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
 
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 }

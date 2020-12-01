@@ -25,8 +25,11 @@ public class Main extends Application {
 	/*
 	 * //Creating Text Filed for email        
 	 * TextField textField1 = new TextField();    
+	 * (0, 0)	(1, 0)	(2, 0)
+	 * (2, 1)	(1, 1)	(0, 1)
+	 * (2, 2)	(1, 2)	(0, 2)
 	 */
-	
+	/******************************************** GUI ********************************************/
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -52,7 +55,12 @@ public class Main extends Application {
 		    homePage.setAlignment(Pos.CENTER);
 		    
 		    //adding the nodes to the grid
-		    
+		    gridPane.add(text1, 0, 0); 
+		    gridPane.add(textField1, 1, 0); 
+		    gridPane.add(text2, 0, 1);       
+		    gridPane.add(textField2, 1, 1); 
+		    gridPane.add(button1, 0, 2); 
+		    gridPane.add(button2, 1, 2);  
 		    
 			
 		    //Creating a scene object where we will put our layout
@@ -64,10 +72,16 @@ public class Main extends Application {
 		    primaryStage.setTitle("Home Page"); 
 			primaryStage.setScene(homeScene);
 			primaryStage.show();
+			
 		} catch(Exception e) {
+			
 			e.printStackTrace();
+			
 		}
+		
 	}
+	
+	/******************************************** MAIN PROGRAM ********************************************/
 	
 	public static void main(String[] args) {
 		launch(args);

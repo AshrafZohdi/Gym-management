@@ -24,12 +24,17 @@ public class Test{
 
 		
 		WorkoutClass yogaClass = new WorkoutClass(yogaSchedIndex, "Biceb Workout","Get dem guns",LocalDate.parse("2019-12-31"), LocalDate.parse("2020-06-20"),aliG);
-		WorkoutClass[] M1Classes = new WorkoutClass[10];
+		//WorkoutClass[] M1Classes = new WorkoutClass[10];
 		WeeklyCalender M1Schedule = new WeeklyCalender(new boolean[7][72]);
 		
 		Member M1 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);		
 		Member M2 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);
 		Member M3 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);
+		
+		yogaClass.courseMembers.add(M1);
+		
+		
+		
 		
 		
 		/*
@@ -56,5 +61,7 @@ public class Test{
 		 * 
 		 */
     }
+    
+    public void 
         
 }

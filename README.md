@@ -26,7 +26,7 @@ Any contributions would be appreciated. You could contribute by:
 - Editing or adding further Documentation 
 - etc
 
-### TODO:
+### TODO
 
 - Create a main.java to replace the Test.java
 - Create a GUI for the program.

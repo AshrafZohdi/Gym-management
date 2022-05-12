@@ -26,6 +26,11 @@ Any contributions would be appreciated. You could contribute by:
 - Editing or adding further Documentation 
 - etc
 
+### TODO:
+
+- Create a main.java to replace the Test.java
+- Create a GUI for the program.
+
 All contributions should be under the terms of the MIT license [&lt;LICENSE&gt;](LICENSE).
 ## License
 

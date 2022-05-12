@@ -7,9 +7,9 @@ It is a Gym Management system that registers users, manages their schedules and 
 
 ## Dependencies
 
-- [Git]
+- Git
 - Java
-- [Eclipse IDE][https://www.eclipse.org/]
+- [Eclipse IDE](https://www.eclipse.org)
 
 
 ## Build instructions

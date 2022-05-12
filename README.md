@@ -14,7 +14,7 @@ It is a Gym Management system that registers users, manages their schedules and 
 
 ## Build instructions
 
-> See [BUILD.md](BUILD.md)
+> See [Build.md](Build.md)
 ## Contributing
 
 Any contributions would be appreciated. You could contribute by:
